@@ -42,27 +42,57 @@ async function main() {
         // increasing the model's likelihood to talk about new topics.
         // presence_penalty: 1,
 
-
+        response_format: { type: "json_object" },
         model: "llama-3.3-70b-versatile",
         messages: [
             // This is system prompt -> this is how we can set model persona or behavior or nature 
             {
                 role: "system",
                 // content: "You are Jarvis, a smart personal assistant. Be always polite and helpful."
-                content: `You are Jarvis, smart review grader. Your task is to analyse given review and return the sentiments. 
-                Classify the review as positive , neutral or negative. Output must be single word `
+                // content: `You are Jarvis, smart review grader. Your task is to analyse given review and return the sentiments. 
+                // Classify the review as positive , neutral or negative. Output must be single word `
 
+                // content: `You are Jarvis, smart review grader. Your task is to analyse given review and return the sentiments. 
+                // Classify the review as positive , neutral or negative. You must return the result in valid JSON structure .
+                // example:{"sentiment": "positive"}`
+                content: `You are a interview grader assistant. Your task is to generate candidate evalution score . 
+                Output must be following JSON structure:
+                {
+                    "confidence": number(1-10 scale),
+                    "accuracy": number(1-10 scale),
+                    "pass": boolean (true or false)
+                } 
+                    The reason must :
+                        1. Include all fields shown above
+                        2. Use only the exact field name shown above
+                        3. Follow the exact data type specified
+                        4. Contain only the JSON object and nothing else 
+                `
             },
             {
                 role: "user",
                 // content: "Who are you?"
-                content: `Review: These headphones arrived quickly and look great, but the left earcup stopped working after a week.
-                Sentiment:
+                // content: `Review: These headphones arrived quickly and look great, but the left earcup stopped working after a week.
+                // Sentiment:
+                // `
+
+                content: `Q: What does === do in javascript?
+                A: It is a strict equality operator that checks both value and type equality.
+
+                Q: How do you create a  promise taht resolve after 1 second?
+                A: const p = new Promise(r => setTimeout(r, 1000))
+
+                Q: What is Hoisting in javascript?
+                A: It is a process of moving function declarations to the top of the scope.
+
+                Q: Why use let instead of var?
+                A: Let is block scoped and var is function scoped.
                 `
             }
-        ]
+        ],
     })
     console.log("Model Response :", completion.choices[0].message.content)
+    console.log("Model Response in JSON :", JSON.parse(completion.choices[0].message.content))
 }
 
 main()
