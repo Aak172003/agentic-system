@@ -1,0 +1,1 @@
+Tool Calling : Used to interact with external resources , such as API, Databases and the Web. 
