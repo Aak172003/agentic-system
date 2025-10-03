@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon execute-untill-tool-calling-perform-or-until-get-result.js"
+    "dev": "nodemon user-input-and-output-with-execute-toolcalling-until-get-final-result.js"
   },
   "keywords": [],
   "author": "",

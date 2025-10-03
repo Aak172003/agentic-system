@@ -85,16 +85,8 @@ async function main() {
                     content: toolResult
                 })
             }
-
-
         }
-
     }
-
-
-
-
 }
-
 
 main()
