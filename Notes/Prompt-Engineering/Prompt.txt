@@ -1,0 +1,14 @@
+Prompt Engineering
+Used to improve the capacity of LLM on a wide range of common and complex task such as a question answering and arithematic reasoning
+
+
+Prompt: A prompt is simply the text you send to a large-language model.
+
+Prompt Format 
+
+1. Instructions
+2. Input Data
+3. Context 
+4. Output Indicator
+
+Here Context is not necessory thing , we can do questuon and answering without context as well 
