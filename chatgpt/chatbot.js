@@ -9,6 +9,8 @@ const cache = new NodeCache({
     stdTTL: 60 * 60 * 24 // 24 hours
 });
 
+
+
 export async function generateResponse(userMessage, threadId) {
     // const message = [
     //     {
@@ -94,7 +96,16 @@ export async function generateResponse(userMessage, threadId) {
         content: userMessage
     })
 
+    const MAX_RETIRES = 10;
+    let count = 0
     while (true) {
+
+        if (count >= MAX_RETIRES) {
+            return "Sorry, I am unable to answer your question. Please try again later."
+
+        }
+
+        count++
         const completion = await groq.chat.completions.create({
             model: "llama-3.1-8b-instant",
             temperature: 0,
