@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatDPT</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="bg-neutral-900 text-white overflow-x-hidden">
+
+    <!-- <h1 class="text-3xl font-bold underline">
+        Hello world!
+      </h1> -->
+      <div class="container mx-auto max-w-3xl pb-44 px-2" id="chat-container"> 
+
+        <!-- Messages Goes Here -->
+
+        <!-- user messages goes here -->
+         <!-- <div class="my-6 bg-neutral-700 p-3 rounded-xl ml-auto max-w-fit">
+            Hi, How are you?
+         </div> -->
+         
+         <!-- Assistant Messages Goes Here -->
+          <!-- <div 
+          class="max-w-fit ">
+        I am good, Thanks for asking ?
+    </div> -->
+
+        <!-- Bottom TextAea Goes Here -->
+       <div class="fixed inset-x-0 bottom-0 flex item-center justify-center mb-2 bg-neutral-900 px-4 md:px-0">
+        <div class="bg-neutral-800 p-2 rounded-3xl w-full max-w-3xl">
+            <textarea class="w-full resize-none outline-0 p-3 " rows="2" placeholder="Message ChatGPT..." id="input"></textarea>
+            <div class="flex justify-end item-center">
+                <button class="bg-white px-4 py-1 text-black rounded-full cursor-pointer hover:bg-neutral-200" id="ask-btn">
+Ask
+                </button>
+            </div>
+        </div>
+       </div>
+      </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

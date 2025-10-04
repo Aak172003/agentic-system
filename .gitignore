@@ -3,3 +3,6 @@ Invoke/package-lock.json
 
 tool-calling/node_modules
 tool-calling/package-lock.json
+
+chatgpt/node_modules
+chatgpt/package-lock.json
