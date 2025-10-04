@@ -5,6 +5,11 @@ const chatContainer = document.querySelector("#chat-container")
 const askBtn = document.querySelector("#ask-btn")
 
 
+const threadId = Date.now().toString(36) + Math.random().toString(36).substring(2, 8)
+
+console.log("threadId", threadId)
+
+
 input.addEventListener('keyup', handleEnter)
 askBtn.addEventListener('click', handleAsk)
 
@@ -62,7 +67,7 @@ async function callServer(inputText) {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ message: inputText })
+        body: JSON.stringify({ message: inputText, threadId: threadId })
     })
 
 

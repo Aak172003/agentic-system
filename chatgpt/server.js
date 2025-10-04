@@ -16,10 +16,16 @@ app.get('/', (req, res) => {
 })
 
 app.post("/query", async (req, res) => {
-    const { message } = req.body
-    console.log("message", message)
+    const { message, threadId } = req.body
 
-    const response = await generateResponse(message)
+    if(!threadId || !message){
+        return res.status(400).json({ error: "Thread ID and message are required" })
+    }
+
+    console.log("message", message)
+    console.log("threadId", threadId)
+
+    const response = await generateResponse(message, threadId)
 
 
     res.json({ message: response })
